@@ -113,6 +113,31 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* SIGN UP PAGE */
+#signupForm input, button {
+  width: auto;
+  color: #000;
+}
+
+#signupForm button[disabled] {
+  width: auto;
+  color: #FFF;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
+
+.emptyMessage {
+  font-weight: bold;
+  color: red;
+  font-size: 1.2em;
+}
+/* END SIGN UP PAGE */
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

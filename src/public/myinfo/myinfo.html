@@ -1,0 +1,15 @@
+<div ng-if="myInfoIsValid">
+<p><b>First Name:</b> {{userInfo.first_name}}</p>
+<p><b>Last Name:</b> {{userInfo.last_name}}</p>
+<p><b>Email:</b> {{userInfo.email}}</p>
+<p><b>Phone:</b> {{userInfo.phone}}</p>
+<br>
+<p><img ng-src="{{menu_item.image}}"/></p>
+<p><b>Menu Item (short_name):</b> {{userInfo.menu_item_name}}</p>
+<p><b>Title:</b> {{menu_item.name}} </p>
+<p><b>Description:</b> {{menu_item.description}} </p>
+</div>
+
+<div ng-if="!myInfoIsValid" class="emptyMessage">
+  Not Signed Up Yet. <a ui-sref="public.nl-sign-up">Sign up Now!</a>
+</div>

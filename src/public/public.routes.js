@@ -1,16 +1,16 @@
 (function() {
-'use strict';
+  'use strict';
 
-angular.module('public')
-.config(routeConfig);
+  angular.module('public')
+  .config(routeConfig);
 
-/**
- * Configures the routes and views
- */
-routeConfig.$inject = ['$stateProvider'];
-function routeConfig ($stateProvider) {
-  // Routes
-  $stateProvider
+  /**
+  * Configures the routes and views
+  */
+  routeConfig.$inject = ['$stateProvider'];
+  function routeConfig ($stateProvider) {
+    // Routes
+    $stateProvider
     .state('public', {
       abstract: true,
       templateUrl: 'src/public/public.html'
@@ -40,6 +40,22 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
+    })
+    .state('public.nl-sign-up', {
+      url: '/nl-sign-up',
+      templateUrl: 'src/public/newsletter/nl-sign-up.html',
+      controller: 'NlSignupController',
+      controllerAs: 'nlSignupCtrl',
+      resolve: {
+        getShortName: ['MenuService', function (MenuService) {
+          return MenuService.getShortName
+        }]
+      }
+    })
+    .state('public.myinfo', {
+      url: '/myinfo',
+      templateUrl: 'src/public/myinfo/myinfo.html',
+      controller: 'MyInfoController'
     });
-}
+  }
 })();

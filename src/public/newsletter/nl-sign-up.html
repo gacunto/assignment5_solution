@@ -1,0 +1,59 @@
+<fieldset>
+  <h3>Registration</h3>
+  <form id="signupForm" name="signup" novalidate>
+
+    <input type="text" name="first_name" placeholder="First Name"
+    ng-model="first_name"
+    required>
+    {{ first_name }}
+    <span ng-if="signup.first_name.$error.required && signup.first_name.$touched" class="ng-scope emptyMessage">
+      First name is required.
+    </span>
+    <br>
+
+    <input type="text" name="last_name" placeholder="Last Name"
+    ng-model="last_name"
+    required>
+    {{ last_name }}
+    <span ng-if="signup.last_name.$error.required && signup.last_name.$touched" class="ng-scope emptyMessage">
+      Last name is required.
+    </span>
+    <br>
+
+    <input type="email" name="email" placeholder="Email"
+    ng-model="email"
+    required>
+    {{ email }}
+    <span ng-if="signup.email.$invalid && signup.email.$touched" class="ng-scope emptyMessage">
+      Must be a valid email address: handle@domain format
+    </span>
+    <br>
+
+    <input type="text" name="phone" placeholder="Phone ###-###-####"
+    ng-model="phone"
+    required
+    pattern="(\d{3})-(\d{3})-(\d{4})">
+    {{ phone }}
+    <span ng-if="signup.phone.$invalid && signup.phone.$touched" class="ng-scope emptyMessage">
+      Phone must be in the format ###-###-####.
+    </span>
+    <br>
+
+    <input type="text" name="menu_item_name" placeholder="Menu NB (short name)"
+    ng-model="menu_item_name"
+    required>
+    {{ menu_item_name }}
+    <span ng-if="menu_item_error && menu_item_name === previous_menu_item_name" class="ng-scope emptyMessage">
+      {{menu_item_error}}
+    </span>
+    <br>
+
+    <button
+    ng-disabled="signup.$invalid"
+    ng-click="submit()">Submit</button>
+    <span ng-if="success_message" class="ng-scope">
+      {{success_message}}
+    </span>
+
+  </form>
+</fieldset>
